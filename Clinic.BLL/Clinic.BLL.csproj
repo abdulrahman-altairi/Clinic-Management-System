@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29FB31E5-7F9B-4F4B-8B4B-0A120AF204E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Clinic.BLL</RootNamespace>
+    <AssemblyName>Clinic.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Result\ServiceResult.cs" />
+    <Compile Include="Helper\HashPassword.cs" />
+    <Compile Include="Helper\RegexPatterns.cs" />
+    <Compile Include="Helper\ValidationRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\AppointmentResult.cs" />
+    <Compile Include="Results\Views\AppointmentViewResult.cs" />
+    <Compile Include="Results\DoctorResult.cs" />
+    <Compile Include="Results\Views\DoctorViewResult.cs" />
+    <Compile Include="Results\InvoiceItemResult.cs" />
+    <Compile Include="Results\InvoiceResult.cs" />
+    <Compile Include="Results\MedicalRecordResult.cs" />
+    <Compile Include="Results\PatientResult.cs" />
+    <Compile Include="Results\Views\PatientViewResult.cs" />
+    <Compile Include="Results\PaymentResult.cs" />
+    <Compile Include="Results\PeopleResult.cs" />
+    <Compile Include="Results\SpecializationResult.cs" />
+    <Compile Include="Results\UserResult.cs" />
+    <Compile Include="Results\ValidationResult.cs" />
+    <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\Views\AppointmentViewService.cs" />
+    <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\Views\DoctorViewService.cs" />
+    <Compile Include="Services\InvoiceItemService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\MedicalRecordService.cs" />
+    <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\Views\PatientViewService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
+    <Compile Include="Services\PeopleService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Validators\FinanceValidator.cs" />
+    <Compile Include="Validators\IdentityValidator.cs" />
+    <Compile Include="Validators\MidecalValidator.cs" />
+    <Compile Include="Validators\PeopleValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clinic.Contracts\Clinic.Contracts.csproj">
+      <Project>{0c79b67f-34c5-4dc6-8303-59edb0c3649a}</Project>
+      <Name>Clinic.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clinic.DAL\Clinic.DAL.csproj">
+      <Project>{024e1d23-4e91-4e9c-922b-7282e7ae47a2}</Project>
+      <Name>Clinic.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clinic.Entities\Clinic.Entities.csproj">
+      <Project>{3435ee58-ba35-45ee-8e28-b8f0bb3864b1}</Project>
+      <Name>Clinic.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

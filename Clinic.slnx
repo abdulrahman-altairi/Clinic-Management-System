@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/ClinicDB/">
+    <File Path="ClinicDB.sql" />
+  </Folder>
+  <Project Path="Clinic.BLL/Clinic.BLL.csproj" Id="29fb31e5-7f9b-4f4b-8b4b-0a120af204e4" />
+  <Project Path="Clinic.Contracts/Clinic.Contracts.csproj" Id="0c79b67f-34c5-4dc6-8303-59edb0c3649a" />
+  <Project Path="Clinic.DAL/Clinic.DAL.csproj" Id="024e1d23-4e91-4e9c-922b-7282e7ae47a2" />
+  <Project Path="Clinic.Entities/Clinic.Entities.csproj" Id="3435ee58-ba35-45ee-8e28-b8f0bb3864b1" />
+  <Project Path="Clinic.Presentation/Clinic.Presentation.csproj" Id="f73e9dbd-3b72-4457-a5e1-136351d48ad0" />
+</Solution>
