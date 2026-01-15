@@ -14,25 +14,6 @@ namespace Clinic.BLL.Services
     {
         private readonly clsPatientView _patientViewDal = new clsPatientView();
 
-        private PatientViewDto MapToDto(PatientView entity)
-        {
-            if (entity == null) return null;
-
-            return new PatientViewDto
-            {
-                PatientID = entity.PatientID,
-                FirstName = entity.FirstName,
-                LastName = entity.LastName,
-                FullName = $"{entity.FirstName} {entity.LastName}",
-                Email = entity.Email,
-                ContactNumber = entity.ContactNumber,
-                DateOfBirth = entity.DateOfBirth,
-                Age = DateTime.Now.Year - entity.DateOfBirth.Year - (DateTime.Now.DayOfYear < entity.DateOfBirth.DayOfYear ? 1 : 0),
-                InsuranceProvider = string.IsNullOrEmpty(entity.InsuranceProvider) ? "Self-Paid" : entity.InsuranceProvider,
-                EmergencyContactName = entity.EmergencyContactName ?? "N/A"
-            };
-        }
-
         public ServiceResult<List<PatientViewDto>, enPatientViewResult> GetAllPatients()
         {
             try
@@ -123,5 +104,27 @@ namespace Clinic.BLL.Services
                 return ServiceResult<DataTable, enPatientViewResult>.Failure(enPatientViewResult.DatabaseError);
             }
         }
+
+
+        private PatientViewDto MapToDto(PatientView entity)
+        {
+            if (entity == null) return null;
+
+            return new PatientViewDto
+            {
+                PatientID = entity.PatientID,
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
+                FullName = $"{entity.FirstName} {entity.LastName}",
+                Email = entity.Email,
+                ContactNumber = entity.ContactNumber,
+                DateOfBirth = entity.DateOfBirth,
+                Age = DateTime.Now.Year - entity.DateOfBirth.Year - (DateTime.Now.DayOfYear < entity.DateOfBirth.DayOfYear ? 1 : 0),
+                InsuranceProvider = string.IsNullOrEmpty(entity.InsuranceProvider) ? "Self-Paid" : entity.InsuranceProvider,
+                EmergencyContactName = entity.EmergencyContactName ?? "N/A"
+            };
+        }
+
+
     }
 }

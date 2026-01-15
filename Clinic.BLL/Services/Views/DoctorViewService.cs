@@ -14,22 +14,6 @@ namespace Clinic.BLL.Services
     {
         private readonly clsDoctorView _doctorViewDal = new clsDoctorView();
 
-        private DoctorViewDto MapToDto(DoctorView entity)
-        {
-            if (entity == null) return null;
-            return new DoctorViewDto
-            {
-                DoctorID = entity.DoctorID,
-                FullName = $"{entity.FirstName} {entity.LastName}", 
-                SpecializationName = entity.SpecializationName,
-                Email = entity.Email,
-                ContactNumber = entity.ContactNumber,
-                ConsultationFee = entity.ConsultationFee,
-                IsAvailable = entity.IsAvailable,
-                Bio = entity.Bio
-            };
-        }
-
         public ServiceResult<List<DoctorViewDto>, enDoctorViewResult> GetAllDoctors()
         {
             try
@@ -123,5 +107,23 @@ namespace Clinic.BLL.Services
                 return ServiceResult<DataTable, enDoctorViewResult>.Failure(enDoctorViewResult.DatabaseError);
             }
         }
+
+
+        private DoctorViewDto MapToDto(DoctorView entity)
+        {
+            if (entity == null) return null;
+            return new DoctorViewDto
+            {
+                DoctorID = entity.DoctorID,
+                FullName = $"{entity.FirstName} {entity.LastName}",
+                SpecializationName = entity.SpecializationName,
+                Email = entity.Email,
+                ContactNumber = entity.ContactNumber,
+                ConsultationFee = entity.ConsultationFee,
+                IsAvailable = entity.IsAvailable,
+                Bio = entity.Bio
+            };
+        }
+
     }
 }

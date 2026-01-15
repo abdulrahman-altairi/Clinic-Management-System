@@ -14,22 +14,6 @@ namespace Clinic.BLL.Services
     {
         private readonly clsAppointmentView _appointmentViewDal = new clsAppointmentView();
 
-        private AppointmentViewDto MapToDto(AppointmentView entity)
-        {
-            if (entity == null) return null;
-            return new AppointmentViewDto
-            {
-                AppointmentID = entity.AppointmentID,
-                PatientName = entity.PatientName,
-                DoctorName = entity.DoctorName,
-                SpecializationName = entity.SpecializationName,
-                AppointmentDate = entity.AppointmentDate,
-                Status = entity.AppointmentStatus, 
-                Reason = entity.ReasonForVisit,
-                Fee = entity.ConsultationFee
-            };
-        }
-
         public ServiceResult<List<AppointmentViewDto>, enAppointmentViewResult> GetAllAppointments()
         {
             try
@@ -122,5 +106,23 @@ namespace Clinic.BLL.Services
                 return ServiceResult<List<AppointmentViewDto>, enAppointmentViewResult>.Failure(enAppointmentViewResult.DatabaseError);
             }
         }
+
+        private AppointmentViewDto MapToDto(AppointmentView entity)
+        {
+            if (entity == null) return null;
+            return new AppointmentViewDto
+            {
+                AppointmentID = entity.AppointmentID,
+                PatientName = entity.PatientName,
+                DoctorName = entity.DoctorName,
+                SpecializationName = entity.SpecializationName,
+                AppointmentDate = entity.AppointmentDate,
+                Status = entity.AppointmentStatus,
+                Reason = entity.ReasonForVisit,
+                Fee = entity.ConsultationFee
+            };
+        }
+
+
     }
 }
